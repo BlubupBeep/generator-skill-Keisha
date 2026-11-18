@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generator Skill</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="kotak-mesin">
+        <h1>Generator Skill Unik</h1>
+
+        <p>
+            Masukkan namamu untuk
+            melihat skill tersembunyimu
+        </p>
+
+        <input
+            type="text"
+            id="namaInput"
+            placeholder="Ketik namamu...."
+        >
+
+        <button onclick="cekSkill()">
+            Cek Sekarang!
+        </button>
+
+        <h2 id="hasilSkill">
+            Skill belum terdeteksi...
+        </h2>
+        <img
+        id="fotoSkill"
+        src="https://placehold.co/200x200?text=?"
+        width="400"
+        >
+    </div>
+
+    <script>
+        function cekSkill() {
+            let nama = document.getElementById("namaInput").value;
+
+            let daftarSkill = [
+               "Radar Wifi",
+                "Rayap Besi",
+                "Let him cook",
+                "Tukang Sawit",
+                "Duolinggo"
+            ];
+
+            let daftarGambar =[
+                "https://i.pinimg.com/236x/05/87/c7/0587c7c3be4def10fe222ae169d971b3.jpg",
+                "https://i.pinimg.com/736x/d0/bf/a4/d0bfa422f3b509dfb1d92f629de44425.jpg",
+                "https://i.pinimg.com/1200x/60/be/f6/60bef6b8c7b1acd8e7f866bc311165f4.jpg",
+                "https://i.pinimg.com/736x/01/c6/86/01c686b08fbfb9fd3f01d434fce3c49b.jpg",
+                "https://i.pinimg.com/736x/11/d6/30/11d6301179e5ffd85b9d4ec070b429db.jpg"
+            ];
+
+            if (nama.trim() === "") {
+                document.getElementById("hasilSkill").innerText =
+                    "Masukkan namamu dulu!";
+                return;
+            }
+
+            let acak = Math.floor(Math.random() * daftarSkill.length);
+            let skillPilihan = daftarSkill[acak];
+
+            let gambarPilihan = daftarGambar[acak];
+
+            document.getElementById("hasilSkill").innerText =
+                nama + ", skill unikmu: " + skillPilihan;
+
+                document.getElementById("fotoSkill").src = gambarPilihan;
+        }
+
+    
+    </script>
+</body>
+</html>
